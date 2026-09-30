@@ -1,5 +1,6 @@
 import 'package:aplication_project/KalkulatorSTLE.dart';
 import 'package:aplication_project/Pages/Login_clone.dart';
+import 'package:aplication_project/Routes.dart';
 import 'package:aplication_project/kalkulator_page.dart';
 import 'package:aplication_project/login_page.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +19,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Kalkulatorstle(),
+      initialRoute: Routes.Registration,
+      getPages: Routes.pages,
     );
   }
 }
