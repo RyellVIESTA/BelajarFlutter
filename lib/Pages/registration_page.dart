@@ -35,7 +35,6 @@ class RegistrationPage extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: MyTextfield(
-              type: TextInputType.number,
               hint: 'Alamat',
               txtController: txtAlamat,
               radius: 20,
@@ -47,7 +46,6 @@ class RegistrationPage extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: MyTextfield(
-              type: TextInputType.number,
               hint: 'Jenis Kelamin',
               txtController: txtJenisKelamin,
               radius: 20,
@@ -71,7 +69,6 @@ class RegistrationPage extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: MyTextfield(
-              type: TextInputType.number,
               hint: 'Email',
               txtController: txtEmail,
               radius: 20,
