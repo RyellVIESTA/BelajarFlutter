@@ -97,7 +97,7 @@ class RegistrationPage extends StatelessWidget {
                 backgroundColor: const Color.fromARGB(255, 0, 195, 255),
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
