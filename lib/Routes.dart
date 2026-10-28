@@ -5,9 +5,7 @@ import 'package:aplication_project/Pages/list_product_page.dart';
 import 'package:aplication_project/Pages/main_menu_page.dart';
 import 'package:get/get.dart';
 
-
 class Routes {
-  // list halaman yang ada di app
   static const String Registration = '/registration';
   static const String ConfirmRegistration = '/confirm-registration';
   static const String ListProduct = '/list-product';
@@ -15,7 +13,7 @@ class Routes {
   static const String MainMenu = '/mainmenupage';
 
   static final pages = [
-    GetPage(name: Registration, page: ()=> RegistrationPage()),
+    GetPage(name: Registration, page: () => RegistrationPage()),
     GetPage(name: ConfirmRegistration, page: () => ConfirmRegistrationPage()),
     GetPage(name: ListProduct, page: () => ListProductPage()),
     GetPage(name: MainMenu, page: () => MainMenuPage()),

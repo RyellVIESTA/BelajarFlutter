@@ -13,10 +13,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-        backgroundColor: Colors.blueAccent,
-      ),
       body: Container(
         margin: EdgeInsets.all(10),
         child: Obx(
