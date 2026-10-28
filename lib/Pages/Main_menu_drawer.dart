@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../controller/main_menu_controller.dart';
 
 class MainMenuDrawerPage extends StatelessWidget {
@@ -9,54 +10,59 @@ class MainMenuDrawerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blueAccent,
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Main Menu Drawer',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
             ),
-            child: Align(
-              alignment: Alignment.bottomLeft,
+          ),
+          backgroundColor: Colors.blue,
+        ),
+
+        drawer: NavigationDrawer(
+          selectedIndex: controller.selectedIndex.value,
+
+          onDestinationSelected: (index) {
+            controller.changePage(index);
+            Navigator.pop(context);
+          },
+
+          children: const [
+            Padding(
+              padding: EdgeInsets.fromLTRB(28, 24, 16, 10),
               child: Text(
-                'Figo Store',
+                'Select Page',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-          ),
 
-          ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Home'),
-            onTap: () {
-              Get.back();
-              controller.changePage(0);
-            },
-          ),
+            NavigationDrawerDestination(
+              icon: Icon(Icons.home),
+              label: Text('Home'),
+            ),
 
-          ListTile(
-            leading: const Icon(Icons.history),
-            title: const Text('History'),
-            onTap: () {
-              Get.back();
-              controller.changePage(1);
-            },
-          ),
+            NavigationDrawerDestination(
+              icon: Icon(Icons.history),
+              label: Text('History'),
+            ),
 
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
-            onTap: () {
-              Get.back();
-              controller.changePage(2);
-            },
-          ),
-        ],
+            NavigationDrawerDestination(
+              icon: Icon(Icons.person),
+              label: Text('Profile'),
+            ),
+          ],
+        ),
+
+        body: IndexedStack(
+          index: controller.selectedIndex.value,
+          children: controller.listPages,
+        ),
       ),
     );
   }
