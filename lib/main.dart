@@ -1,6 +1,7 @@
 import 'package:aplication_project/KalkulatorSTLE.dart';
 import 'package:aplication_project/Pages/Login_clone.dart';
 import 'package:aplication_project/Routes.dart';
+import 'package:aplication_project/Pages/main_menu_page.dart';
 import 'package:aplication_project/kalkulator_page.dart';
 import 'package:aplication_project/login_page.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      initialRoute: Routes.ListProduct,
+      initialRoute: Routes.MainMenu,
       getPages: Routes.pages,
     );
   }
