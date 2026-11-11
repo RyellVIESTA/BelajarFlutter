@@ -2,9 +2,14 @@ import 'package:aplication_project/Coponents/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:aplication_project/Coponents/my_textField.dart';
 import 'package:aplication_project/Coponents/my_text.dart';
+import 'package:get/get.dart';
+
+import '../controller/LoginCloneController.dart';
 
 class LoginClone extends StatelessWidget {
-  const LoginClone({super.key});
+  LoginClone({super.key});
+
+  final controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +34,7 @@ class LoginClone extends StatelessWidget {
                 margin: EdgeInsets.all(25),
                 child: MyTextfield(
                   hint: 'Username',
-                  txtController: TextEditingController(),
+                  txtController: controller.txtUsername,
                   radius: 10,
                 ),
               ),
@@ -38,28 +43,9 @@ class LoginClone extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
                 child: MyTextfield(
                   hint: 'Password',
-                  txtController: TextEditingController(),
+                  txtController: controller.txtPassword,
                   radius: 10,
-                ),
-              ),
-
-              Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 25,
-                  vertical: 15,
-                ),
-                width: double.infinity,
-                child: MyButton(
-                  onPressed: () {},
-                  text: 'Login',
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1877F2),
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
+                  isPassword: true,
                 ),
               ),
 
@@ -73,23 +59,20 @@ class LoginClone extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 25),
-                width: double.infinity,
-                child: MyButton(
-                  onPressed: () {},
-                  text: 'Buat akun baru',
-                  color: const Color.fromARGB(255, 24, 119, 242),
-                  style: OutlinedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    side: const BorderSide(
-                      color: Color.fromARGB(255, 24, 119, 242),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                ),
+              Obx(
+                () => controller.isLoading.value
+                    ? Center(child: CircularProgressIndicator())
+                    : Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 30),
+                        width: double.infinity,
+                        height: 50,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            controller.login();
+                          },
+                          child: const Text("Login"),
+                        ),
+                      ),
               ),
             ],
           ),

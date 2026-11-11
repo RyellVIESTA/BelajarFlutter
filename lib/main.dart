@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      initialRoute: Routes.MainMenu,
+      initialRoute: Routes.loginClone,
       getPages: Routes.pages,
     );
   }

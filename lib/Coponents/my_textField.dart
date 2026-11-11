@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class MyTextfield extends StatelessWidget {
@@ -5,6 +6,7 @@ class MyTextfield extends StatelessWidget {
   final String hint;
   final TextEditingController txtController;
   final double radius;
+  final bool isPassword;
 
   const MyTextfield({
     super.key,
@@ -12,6 +14,7 @@ class MyTextfield extends StatelessWidget {
     required this.hint,
     required this.txtController,
     required this.radius,
+    this.isPassword = false,
   });
 
   @override
@@ -19,6 +22,7 @@ class MyTextfield extends StatelessWidget {
     return TextField(
       keyboardType: type,
       controller: txtController,
+      obscureText: isPassword,
       decoration: InputDecoration(
         hint: Text(hint),
         border: OutlineInputBorder(
